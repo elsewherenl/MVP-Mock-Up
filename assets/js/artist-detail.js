@@ -44,25 +44,24 @@ if (!slug) {
 
   (artist.worksList || []).forEach((work, idx) => {
     // Normalize image path for correct loading
-
     const imgSrc = work.img; 
 
     // Create slide
     const slide = document.createElement('div');
     slide.className = 'carousel-slide';
-slide.innerHTML = `
-  <img src="${imgSrc}" alt="${work.title}" class="slide-image">
-  <div class="slide-info">
-    <p class="slide-title">${work.title}</p>
-    <p class="slide-meta">${work.year} • ${work.edition}</p>
-  </div>
-`;
+    slide.innerHTML = `
+      <img src="${imgSrc}" alt="${work.title}" class="slide-image">
+      <div class="slide-info">
+        <p class="slide-title">${work.title}</p>
+        <p class="slide-meta">${work.year} • ${work.edition}</p>
+      </div>
+    `;
     scrollNode.appendChild(slide);
-// Add this new line:
+    
+    // Add click handler for modal
     slide.addEventListener('click', () => {
         openModal(work, artist);
     });
-
 
     // Create nav dot
     const dot = document.createElement('span');
@@ -99,24 +98,6 @@ slide.innerHTML = `
   });
 }
 
-document.addEventListener('DOMContentLoaded', renderArtistPage);
-
-document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('artworkModal');
-    const closeBtn = document.getElementById('modalClose');
-
-    closeBtn.addEventListener('click', () => {
-        modal.classList.remove('active');
-    });
-
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.remove('active');
-        }
-    });
-});
-document.addEventListener('DOMContentLoaded', renderArtistPage);
-
 function openModal(work, artist) {
     const modal = document.getElementById('artworkModal');
     const modalImage = document.getElementById('modalImage');
@@ -136,6 +117,8 @@ function openModal(work, artist) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    renderArtistPage();
+    
     const modal = document.getElementById('artworkModal');
     const closeBtn = document.getElementById('modalClose');
 

@@ -44,7 +44,7 @@ if (!slug) {
 
   (artist.worksList || []).forEach((work, idx) => {
     // Normalize image path for correct loading
-    const imgSrc = work.img.replace('../assets/img/', '/assets/img/');
+    const imgSrc = const imgSrc = work.img.replace('../assets/img/', '/MVP-Mock-Up-/assets/img/');
 
     // Create slide
     const slide = document.createElement('div');

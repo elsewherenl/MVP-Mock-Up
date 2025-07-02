@@ -44,7 +44,7 @@ if (!slug) {
 
   (artist.worksList || []).forEach((work, idx) => {
     // Normalize image path for correct loading
-    const imgSrc = work.img; // Keep the original relative path
+    const imgSrc = work.img; 
 
     // Create slide
     const slide = document.createElement('div');

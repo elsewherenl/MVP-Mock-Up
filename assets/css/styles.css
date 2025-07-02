@@ -768,7 +768,7 @@ body {
   }
   
   .nav-item {
-    font-size: 1.5rem;         /* Noticeably bigger text */
+    font-size: 1.4rem;         /* Noticeably bigger text */
     padding: 0.75rem 0;        /* More padding */
     min-height: 50px;          /* Bigger touch targets */
   }

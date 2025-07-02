@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Elsewhere Collective</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/about.css">
+</head>
+<body>
+       <div class="container collection-container">
+        <!-- Header -->
+        <div class="header">
+            <a href="../landing/index.html" class="logo">
+                <div>else</div>
+                <div>where</div>
+            </a>
+            <!-- ← Add this line -->
+  <h1 class="header-title">elsewhere collective</h1>
+            <nav class="navigation">
+                <a href="../collection/" class="nav-item">Collection</a>
+                <a href="../artists/" class="nav-item">Artists</a>
+                <a href="../about/" class="nav-item active">About</a>
+                <a href="../contact/" class="nav-item">Contact</a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <main class="about-main">
+            <!-- Gallery Space -->
+            <div class="gallery-space">
+                <!-- Magazine Layout -->
+                <div class="about-magazine">
+                    <!-- Block 1: Hero Text -->
+                    <div class="content-block text-block hero block-1">
+                        <h2>Thoughtful curation</h2>
+                        <h3>A space for photography that matters. Work that endures, not what's trending.</h3>
+                        <div class="quote">"New voices, celebrated work, ready to collect"</div>
+                    </div>
+
+                    <!-- Block 2: Image -->
+                    <div class="content-block image-block block-2" style="background-image: url('../assets/img/topright.jpg');"></div>
+
+                <div class="content-block text-block compact block-3">
+    <h2>Accessibility</h2>
+    <p>Helping collectors discover emerging art and support new talent.</p>
+</div>
+
+                    <!-- Block 4: Text -->
+                    <div class="content-block text-block compact block-4">
+                        <h2>Discovery</h2>
+                        <p>We find photographers who see differently. Fresh eyes, real stories.</p>
+                    </div>
+
+ 
+<!-- Block 5: Image --> 
+<div class="content-block image-block block-5" style="background-image: url('../assets/img/grain2.jpeg'); background-size: 220%; background-position: center top;"></div>
+
+
+                    <!-- Block 6: Image -->
+                    <div class="content-block image-block block-6" style="background-image: url('../assets/img/midleft.jpg'); background-size: 180%; background-position: center top;"></div>
+
+                    <!-- Block 7: Text -->
+                    <div class="content-block text-block block-7">
+                        <h2>Our Approach</h2>
+                        <h3>New Voices, Celebrated Perspectives</h3>
+                        <p>Experience over hype. We care about what drives someone to pick up a camera.</p>
+                    </div>
+
+                    <!-- Block 8: Text -->
+                    <div class="content-block text-block tall block-8">
+                        <h2>Easy discovery</h2>
+                        <h3>Photography with roots and stories.</h3>
+                        <p>Images that come from somewhere. Telling those stories.</p>
+                    </div>
+
+            <div class="content-block text-block compact block-9">
+    <h2>Curation</h2>
+       <p>Photographers who see something worth sharing.</p>
+</div>
+
+                    <!-- Block 10: Car with flowers image -->
+                    <div class="content-block image-block block-10" style="background-image: url('../assets/img/bottom right.jpg');"></div>
+
+<!-- Block 11: Image -->
+<div class="content-block image-block block-11" style="background-image: url('../assets/img/edition.jpg'); background-size: 120%; background-position: center 90%;"></div>
+
+                    <!-- Block 12: CTA -->
+                    <div class="content-block cta-block block-12">
+                        <h3>Ready to explore?</h3>
+                        <a href="../collection/" class="cta-link">View Collection</a>
+                    </div>
+
+                    <!-- Block 13: Text -->
+<div class="content-block text-block compact block-13">
+    <h2>Focus</h2>
+    <p> Made for European collectors <p>
+</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+    <div class="footer-section">
+  <h1 class="main-title">elsewhere collective</h1>
+</div>
+</div>
+        <!-- Scroll Progress Indicator -->
+        <div class="scroll-progress">
+            <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+        </div>
+    
+
+    <script>
+        // Scroll Progress Indicator
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+            
+            document.getElementById('scrollProgressBar').style.height = scrollPercent + '%';
+        });
+    </script>
+</body>
+</html>

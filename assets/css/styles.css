@@ -760,3 +760,29 @@ body {
         font-size: 0.75rem;
     }
 }
+/* Mobile header improvements */
+@media (max-width: 600px) {
+  .header {
+    padding: 2rem 1rem;        /* Much bigger padding */
+    min-height: 120px;         /* Taller header */
+  }
+  
+  .nav-item {
+    font-size: 1.5rem;         /* Noticeably bigger text */
+    padding: 0.75rem 0;        /* More padding */
+    min-height: 50px;          /* Bigger touch targets */
+  }
+  
+  .header-title {
+    font-size: 1.7rem;         /* Much larger title */
+    font-weight: 500;          /* Slightly bolder */
+  }
+  
+  .logo {
+    font-size: 1.7rem;         /* Bigger logo */
+  }
+  
+  .navigation {
+    gap: 1.8rem;                 /* More space between nav items */
+  }
+}

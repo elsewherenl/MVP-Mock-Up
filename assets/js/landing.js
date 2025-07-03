@@ -123,6 +123,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize animations
     initializeAnimations();
     
+    // Initialize mobile dots (ADD THIS)
+    initializeMobileDots();
+    
     // ========== CONTENT INITIALIZATION ==========
     function initializeContent() {
         // About section
@@ -411,4 +414,28 @@ document.addEventListener('DOMContentLoaded', function() {
             cardObserver.observe(card);
         });
     }
-});
+    
+    // ========== MOBILE DOTS FUNCTIONALITY ==========
+    function initializeMobileDots() {
+        // Detect scroll position and update dots
+        const featuredGrid = document.querySelector('.featured-grid');
+        const dots = document.querySelectorAll('.mobile-featured-dot');
+
+        if (featuredGrid && dots.length > 0) {
+            featuredGrid.addEventListener('scroll', () => {
+                // Calculate which card is in view
+                const scrollLeft = featuredGrid.scrollLeft;
+                const cardWidth = featuredGrid.children[0].offsetWidth;
+                const gapWidth = 24; // 1.5rem = 24px gap from CSS
+                const totalCardWidth = cardWidth + gapWidth;
+                const activeIndex = Math.round(scrollLeft / totalCardWidth);
+                
+                // Update dots
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === activeIndex);
+                });
+            });
+        }
+    }
+    
+}); // ← MISSING CLOSING BRACE WAS HERE!

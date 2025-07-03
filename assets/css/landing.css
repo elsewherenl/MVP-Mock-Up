@@ -675,3 +675,128 @@ html::-webkit-scrollbar { display: none; }
     gap: 1.8rem;               /* More space between nav items */
   }
 }
+/* Add this to your landing.css file - Mobile scroll indicators and CTA fix */
+
+@media (max-width: 768px) {
+    /* Fix featured grid mobile layout */
+    .featured-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 1.5rem;
+        padding: 0 1rem;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        /* Add slight peek of next card */
+        padding-right: 2rem;
+    }
+    
+    .featured-grid::-webkit-scrollbar { display: none; }
+    
+    .featured-card {
+        flex: 0 0 85vw;
+        max-width: 350px;
+        scroll-snap-align: center;
+    }
+    
+    .featured-card.large { 
+        flex: 0 0 85vw;           /* Same size on mobile */
+        max-width: 350px;
+        /* Remove grid properties */
+    }
+    
+    /* Fix CTA section for mobile */
+    .cta-section {
+        flex: 0 0 85vw;           /* Same as other cards */
+        max-width: 350px;
+        scroll-snap-align: center;
+        /* Remove all grid properties */
+        margin: 0;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /* Add scroll indicators for mobile featured section */
+    .featured-section {
+        position: relative;
+        padding: 1.5rem 0 4rem; /* Extra bottom padding for dots */
+    }
+}
+
+/* Mobile scroll dots for featured section */
+.mobile-featured-dots {
+    display: none; /* Hidden by default */
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1.5rem 0;
+    margin-top: 1rem;
+}
+@media (max-width: 768px) {
+    .mobile-featured-dots {
+        display: flex; /* Show on mobile only */
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem 0; /* Control spacing above/below dots */
+        margin-top: 0.75rem; /* Add this to match gap above dots */
+    }
+    
+    /* Reduce gap between title and dots */
+    .section-header {
+        margin-bottom: 0; /* Remove default margin */
+    }
+    
+    /* Ensure featured grid has minimal top margin */
+    .featured-grid {
+        margin-top: 0;
+    }
+}
+
+.mobile-featured-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(214, 179, 112, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.mobile-featured-dot.active {
+    background: #D6B370; /* Biscuit gold */
+    transform: scale(1.2);
+}
+
+.mobile-featured-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(214, 179, 112, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.mobile-featured-dot.active {
+    background: #D6B370; /* Biscuit gold */
+    transform: scale(1.2);
+}
+
+/* Peek indicator - subtle visual cue */
+@media (max-width: 768px) {
+    .featured-grid::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 20px;
+        background: linear-gradient(to right, transparent, rgba(243, 239, 233, 0.5));
+        pointer-events: none;
+        z-index: 1;
+    }
+    
+    .featured-section {
+        position: relative;
+    }
+}

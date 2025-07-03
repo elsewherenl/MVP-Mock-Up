@@ -132,3 +132,99 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+// iOS Safari Layout Recalculation Fix
+// Add this to your existing artist-detail.js file or create a separate script
+
+// Method 1: Force carousel slides recalculation
+function fixiOSSafariLayout() {
+  const slides = document.querySelectorAll('.carousel-slide');
+  
+  if (slides.length > 0) {
+    slides.forEach(slide => {
+      // Force display recalculation
+      slide.style.display = 'none';
+      slide.offsetHeight; // Force browser reflow
+      slide.style.display = '';
+      
+      // Also force width recalculation
+      const currentWidth = slide.style.width;
+      slide.style.width = '99.9%';
+      slide.offsetWidth; // Force reflow
+      slide.style.width = currentWidth || '';
+    });
+  }
+}
+
+// Method 2: Alternative - force container recalculation
+function fixContainerLayout() {
+  const container = document.querySelector('.h-scroll');
+  const workCol = document.querySelector('.work-col');
+  
+  if (container) {
+    container.style.display = 'none';
+    container.offsetHeight; // Force reflow
+    container.style.display = 'flex';
+  }
+  
+  if (workCol) {
+    workCol.style.width = '99.9%';
+    workCol.offsetWidth; // Force reflow
+    workCol.style.width = '';
+  }
+}
+
+// Run the fix after page load
+window.addEventListener('load', () => {
+  // Small delay to ensure everything is rendered
+  setTimeout(() => {
+    fixiOSSafariLayout();
+    fixContainerLayout();
+  }, 100);
+  
+  // Also run after a longer delay as backup
+  setTimeout(() => {
+    fixiOSSafariLayout();
+  }, 500);
+});
+
+// Also run after orientation change
+window.addEventListener('orientationchange', () => {
+  setTimeout(() => {
+    fixiOSSafariLayout();
+    fixContainerLayout();
+  }, 200);
+});
+
+// Run after window resize (covers other layout changes)
+window.addEventListener('resize', () => {
+  setTimeout(() => {
+    fixiOSSafariLayout();
+  }, 100);
+});
+
+// Optional: Run when images load (if carousel depends on images)
+document.addEventListener('DOMContentLoaded', () => {
+  const images = document.querySelectorAll('.carousel-slide img');
+  let loadedImages = 0;
+  
+  if (images.length > 0) {
+    images.forEach(img => {
+      if (img.complete) {
+        loadedImages++;
+      } else {
+        img.addEventListener('load', () => {
+          loadedImages++;
+          if (loadedImages === images.length) {
+            // All images loaded, recalculate layout
+            setTimeout(fixiOSSafariLayout, 50);
+          }
+        });
+      }
+    });
+    
+    // If all images were already loaded
+    if (loadedImages === images.length) {
+      setTimeout(fixiOSSafariLayout, 50);
+    }
+  }
+});

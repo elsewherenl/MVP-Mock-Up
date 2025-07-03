@@ -547,7 +547,7 @@ html::-webkit-scrollbar { display: none; }
         display: block !important; 
     }
     
-    /* Mobile header adjustments */
+    /* Mobile header adjustments - MATCH MAIN STYLES */
     .header {
         height: 6rem;
         padding: 1rem 1rem 0.75rem 1rem;
@@ -561,7 +561,7 @@ html::-webkit-scrollbar { display: none; }
     .logo { display: none; }
     
     .header-title {
-        font-size: 1.4rem;
+        font-size: 1.4rem;         /* Keep this as-is */
         font-weight: 500;
         letter-spacing: -0.02em;
         text-transform: lowercase;
@@ -573,14 +573,14 @@ html::-webkit-scrollbar { display: none; }
     
     .navigation {
         display: flex !important;
-        margin-top: 0;
-        gap: 1.5rem;
+        margin-top: -0.375rem;     /* MATCH: -6px */
+        gap: 1.5625rem;           /* MATCH: 25px */
         justify-content: center;
     }
     
     .nav-item {
         display: block !important;
-        font-size: 0.875rem;
+        font-size: 1rem;          /* MATCH: 16px instead of 0.875rem */
     }
     
     /* Mobile content adjustments */
@@ -640,4 +640,38 @@ html::-webkit-scrollbar { display: none; }
         grid-row: auto;
         margin-top: 2rem;
     }
+}
+/* Mobile header improvements */
+@media (max-width: 600px) {
+  .header {
+    padding: 2rem 1rem;        /* Much bigger padding */
+    min-height: 100px;         /* Taller header */
+  }
+  
+  .nav-item {
+    font-size: 1.4rem;         /* Noticeably bigger text */
+    padding: 0.75rem 0;        /* More padding */
+    min-height: 50px;          /* Bigger touch targets */
+    font-weight: 400 !important; /* Force consistent weight - fixes jumping */
+    display: flex;             /* Better alignment */
+    align-items: center;       /* Center vertically */
+  }
+  
+  .nav-item.active {
+    font-weight: 400 !important; /* Same weight as others */
+    color: #D6B370;             /* Use color for active state instead */
+  }
+  
+  .header-title {
+    font-size: 1.7rem;         /* Much larger title */
+    font-weight: 500;          /* Slightly bolder */
+  }
+  
+  .logo {
+    font-size: 1.7rem;         /* Bigger logo */
+  }
+  
+  .navigation {
+    gap: 1.8rem;               /* More space between nav items */
+  }
 }

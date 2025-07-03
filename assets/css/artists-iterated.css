@@ -271,7 +271,7 @@
     display: flex;
     flex-direction: column;    /* Stack vertically */
     gap: 2rem;                 /* Space between images */
-    margin: 0 1rem;
+    margin: 0rem;
     overflow: visible;         /* No horizontal scroll needed */
   }
   
@@ -280,6 +280,7 @@
     width: 100%;               /* Full width */
     height: 70vh;              /* Good mobile height */
     max-height: 500px;         /* Cap the height */
+    box-sizing: border-box;    /* ← Add this line */
   }
   
   /* Hide carousel indicators on mobile */
@@ -360,4 +361,13 @@
         overflow-x: hidden;
         margin-top: 0;
     }
+}
+@media (max-width: 420px) {
+  .carousel-slide {
+    padding: 0.5rem;  /* Half the white frame padding */
+  }
+  
+  .container {
+    padding: 0.5rem;  /* Half the container padding */
+  }
 }
